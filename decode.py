@@ -6,7 +6,13 @@ def dic_words():
 if "cat" in dic_words():
     print(True)
 
-real_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+else:
+    print(False)
+
+a = "".join(['a','b','c','d'])
+
+
+real_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 words = input("Please enter your text (numerically represented) with - between letters. \n" )
 
@@ -26,19 +32,20 @@ for wordloop in range(numwords):
     globals()['letters%s' % wordloop] = numletters
     for letterloop in range(numletters):
         globals()['word%s_%s' % (wordloop, letterloop)] = letters_string[letterloop]
-    
+        globals()['test_word%s_%s' % (wordloop, letterloop)] = letters_string[letterloop]
 
 print("This is the letter at the requested position: %s" % word1_2)
 
 print("There are %s letters in your chosen word." % letters1)
 
 try:
-    word1_2
+    test_word1_2
 except NameError:
-    print("well, it WASN'T defined after all!")
+    print("Undefined")
 else:
-    print("sure, it was defined.")
+    print("Defined.")
 
 
 for looper in range (numwords):
-    pass
+    eval('test_word%d_%d' % (looper, looper))
+  
